@@ -32,10 +32,9 @@ let dbUsers=
 
 function login (username, password) 
 {
-console.log ("someone try to login with",  username, password)
-let matched = dbUsers.find (element => element.username == username
-    
-)
+//console.log ("someone try to login with",  username, password)
+let matched = dbUsers.find (element => element.username == username)
+
 if (matched)
     {
         if (matched.password == password)
@@ -52,6 +51,31 @@ if (matched)
 
 }
 
-//tr to login
-console.log (login ("Mai", "maya"))
-console.log (login ("Mai", "mystery"))
+function register (newusername, newpassword, newname, newemail) 
+{
+   // TO DO : Check if username exist 
+   
+let exist = dbUsers.find (element => element.username == newusername)
+
+if (exist)
+    {
+        return "username is already exist"
+    }
+else 
+    { 
+      
+         dbUsers.push
+         ({username: newusername,
+            password: newpassword,
+            name : newname,
+            email : newemail
+        })
+    }
+}
+
+//try to login
+//console.log (login ("Mai", "mystery"))
+//console.log (login ("maya", "2222"))
+
+//register
+console.log (register ("Mai","2222", "maisara", "mya@utem.edu.my"))
